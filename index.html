@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uysot - Платформа для риэлторов</title>
+    <title>Финальная Продуктовая Матрица Uysot</title>
     <style>
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
-            --primary-light: #dbeafe;
             --secondary: #64748b;
             --light: #f8fafc;
             --dark: #1e293b;
             --accent: #f59e0b;
-            --accent-light: #fef3c7;
             --border: #e2e8f0;
             --success: #10b981;
-            --success-light: #d1fae5;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
         }
         
         * {
@@ -32,95 +28,76 @@
         body {
             background-color: var(--light);
             color: var(--dark);
-            line-height: 1.5;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            flex: 1;
         }
         
         header {
-            background: var(--gradient);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 2.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="0,0 1000,50 1000,100 0,100"/></svg>');
-            background-size: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-            position: relative;
+            margin-bottom: 0.5rem;
         }
         
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
         }
         
         section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             padding: 2rem;
-            border: 1px solid var(--border);
         }
         
         h2 {
             color: var(--primary);
             margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--primary-light);
-            font-size: 1.75rem;
-            text-align: center;
-            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            font-size: 1.8rem;
         }
         
         h3 {
-            color: var(--dark);
-            margin: 1.25rem 0 0.75rem;
-            font-size: 1.3rem;
-            font-weight: 600;
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
         }
         
         .packages {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
         
         .package {
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.75rem;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            background: white;
         }
         
         .package::before {
@@ -129,7 +106,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 5px;
         }
         
         .package:nth-child(1)::before {
@@ -146,14 +123,14 @@
         
         .package:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         
         .package-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.25rem;
+            align-items: center;
+            margin-bottom: 1rem;
         }
         
         .package h3 {
@@ -161,47 +138,42 @@
             align-items: center;
             color: var(--dark);
             margin: 0;
-            font-size: 1.4rem;
         }
         
         .package-icon {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             margin-right: 10px;
         }
         
         .package-price {
-            font-size: 1.75rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary);
-            text-align: right;
         }
         
         .price-details {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--secondary);
             margin-top: 0.25rem;
         }
         
         .segment {
-            background-color: var(--primary-light);
-            padding: 0.75rem;
+            background-color: #f1f5f9;
+            padding: 0.8rem;
             border-radius: 6px;
             margin: 1rem 0;
             font-weight: 500;
-            font-size: 0.9rem;
         }
         
         ul {
-            padding-left: 1.25rem;
-            margin: 0.75rem 0;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
         }
         
         li {
             margin-bottom: 0.5rem;
             position: relative;
-            padding-left: 1.25rem;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            padding-left: 1.5rem;
         }
         
         li::before {
@@ -213,18 +185,18 @@
         }
         
         .highlight {
-            background-color: var(--accent-light);
-            padding: 1.25rem;
+            background-color: #fef3c7;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 1.25rem 0;
+            margin: 1.5rem 0;
             border-left: 4px solid var(--accent);
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
-            margin: 1.25rem 0;
+            margin: 1.5rem 0;
         }
         
         .feature {
@@ -235,52 +207,45 @@
         }
         
         .feature-title {
-            font-weight: 600;
+            font-weight: bold;
             margin-bottom: 0.5rem;
             color: var(--dark);
-            font-size: 0.95rem;
         }
         
         .free-installation {
-            background: linear-gradient(135deg, var(--success-light), #ecfdf5);
-            padding: 0.75rem;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            padding: 0.8rem;
             border-radius: 6px;
-            margin: 0.75rem 0;
-            border-left: 3px solid var(--success);
-            font-weight: 600;
-            font-size: 0.9rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid var(--success);
+            font-weight: bold;
         }
         
         .bonus-credit {
             background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            padding: 0.75rem;
+            padding: 0.8rem;
             border-radius: 6px;
-            margin: 0.75rem 0;
-            border-left: 3px solid var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid var(--primary);
+            font-weight: bold;
         }
         
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.25rem 0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
         .comparison-table th {
             background-color: var(--primary);
             color: white;
-            padding: 0.9rem;
+            padding: 1rem;
             text-align: left;
-            font-weight: 600;
         }
         
         .comparison-table td {
-            padding: 0.9rem;
+            padding: 1rem;
             border-bottom: 1px solid var(--border);
         }
         
@@ -291,50 +256,31 @@
         .comparison-table .check {
             color: var(--success);
             font-weight: bold;
-            font-size: 1.1rem;
         }
         
         .comparison-table .dash {
             color: var(--secondary);
         }
         
-        .warning-box {
-            background: linear-gradient(135deg, #fef3f3, #fee2e2);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border-left: 4px solid var(--danger);
-        }
-        
-        .viral-mechanic {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border-left: 3px solid var(--primary);
-        }
-        
         .tariff-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 0.75rem 0;
+            margin: 1rem 0;
             background: white;
-            border-radius: 6px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            font-size: 0.85rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
         .tariff-table th {
             background-color: var(--primary);
             color: white;
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: left;
-            font-weight: 600;
         }
         
         .tariff-table td {
-            padding: 0.75rem;
+            padding: 1rem;
             border-bottom: 1px solid var(--border);
         }
         
@@ -342,138 +288,27 @@
             border-bottom: none;
         }
         
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
-            margin: 1.5rem 0;
-        }
-        
-        .benefit-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        footer {
+            background: var(--dark);
+            color: white;
             text-align: center;
-            border-top: 3px solid var(--primary);
-            transition: transform 0.2s;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
         }
         
-        .benefit-card:hover {
-            transform: translateY(-3px);
-        }
-        
-        .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .benefit-title {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-        
-        .cta-section {
-            background: var(--gradient);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin: 2.5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="0,100 1000,50 1000,0 0,0"/></svg>');
-            background-size: cover;
-        }
-        
-        .cta-title {
-            font-size: 1.8rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            color: white;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 0.9rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border: 2px solid white;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            background: transparent;
-            color: white;
-        }
-        
-        .cta-button.secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .cta-button.secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .compact-text {
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        
-        .feature-compact {
-            padding: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .package-compact {
-            padding: 1.5rem;
-        }
-        
-        .contact-info {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.9;
+        @media (max-width: 1024px) {
+            .packages {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
-            .packages, .benefits-grid {
+            .packages {
                 grid-template-columns: 1fr;
             }
             
             h1 {
                 font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
             }
             
             section {
@@ -493,92 +328,41 @@
                 display: block;
                 overflow-x: auto;
             }
-            
-            .cta-section {
-                padding: 2rem;
-            }
-            
-            .cta-title {
-                font-size: 1.5rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-button {
-                width: 100%;
-                max-width: 280px;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Uysot - Ваш надежный партнер в недвижимости</h1>
-            <p class="subtitle">Комплексная платформа для риэлторов: CRM, маркетплейс и лиды в одном решении</p>
+            <h1>Финальная Продуктовая Матрица Uysot</h1>
+            <p class="subtitle"></p>
         </div>
     </header>
     
     <div class="container">
         <section>
-            <h2>Преимущества платформы Uysot</h2>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🏠</div>
-                    <div class="benefit-title">Маркетплейс недвижимости</div>
-                    <p class="compact-text">Размещайте объявления, привлекайте клиентов и увеличивайте продажи на нашей платформе</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-title">CRM система</div>
-                    <p class="compact-text">Управляйте клиентами, сделками и задачами в удобной системе, созданной специально для риэлторов</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔥</div>
-                    <div class="benefit-title">Горячие лиды</div>
-                    <p class="compact-text">Получайте готовых клиентов с нашей платформы лидов и увеличивайте количество сделок</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Выберите подходящий пакет</h2>
+            <h2>Финальная Продуктовая Матрица</h2>
             
             <div class="packages">
-                <div class="package package-compact">
+                <div class="package">
                     <div class="package-header">
                         <h3><span class="package-icon">👑</span>Пакет "Маклер"</h3>
-                        <div class="package-price">$25<span class="price-period">/месяц</span></div>
-                    </div>
-                    <div class="price-details">
-                        Первый пользователь: $25/месяц • Второй пользователь: $15/месяц
-                    </div>
-                    
-                    <div class="segment">
-                        <strong>Идеально для:</strong> Индивидуальных риэлторов и небольших команд
                     </div>
                     
                     <div class="bonus-credit">
-                        ✅ Стартовый бонус 150 000 сум после релиза (используйте на объявления или лиды)
+                        ✅ Стартовый бонус 150,000 сум после релиза (используйте на объявления или лиды)
                     </div>
                     
                     <div class="features-grid">
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Маркетплейс</div>
-                            <p class="compact-text"><strong>Бесплатное размещение до релиза</strong><br>
-                            - После релиза: используйте бонус 150 000 сум на листинг<br>
-                            - Доступные тарифы на объявления:<br>
+                            <p><strong>Бесплатное размещение до релиза</strong><br>
+                            - После релиза: используйте бонус 150,000 сум на листинг объявлений<br>
+                            - Тарифы на объявления после релиза:<br>
                             <table class="tariff-table">
                                 <tr>
                                     <th>Тариф</th>
-                                    <th>Объявления</th>
+                                    <th>Кол-во объявлений</th>
                                     <th>Цена</th>
                                 </tr>
                                 <tr>
@@ -597,99 +381,144 @@
                                     <td>1,000,000 сум</td>
                                 </tr>
                             </table>
-                            - Функция "Поднятие в топ" (скоро)</p>
+                            - Платная функция "Поднятие в топ" (станет доступной после запуска фичи)</p>
                         </div>
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Lid Bozor</div>
-                            <p class="compact-text"><strong>Доступ к платформе лидов</strong><br>
-                            - Бонус 150 000 сум можно использовать на покупку лидов<br>
-                            - Прямая интеграция с маркетплейсом</p>
+                            <p><strong>150,000 бонус на покупку лидов</strong><br>
+                            - Используйте бонусные средства для покупки лидов</p>
                         </div>
-                        <div class="feature feature-compact">
-                            <div class="feature-title">РЕФЕРАЛЬНАЯ ПРОГРАММА</div>
-                            <div class="viral-mechanic">
-                                <p class="compact-text"><strong>Приглашай коллег - получай объявления БЕСКОНЕЧНО!</strong><br>
-                                - За каждого приглашенного риэлтора, который зарегистрировался и использовал бонус<br>
-                                - Пригласивший получит: <strong>Mini тариф (5 объявлений)</strong><br>
-                                - <strong>БЕСКОНЕЧНО:</strong> Нет ограничений на количество приглашенных!</p>
-                            </div>
+                    </div>
+                    
+                    <div style="margin-top: auto; padding-top: 1rem;">
+                        <div class="highlight" style="margin-bottom: 0;">
+                            <strong>Для кого:</strong> Индивидуальные риэлторы, работающие самостоятельно
                         </div>
                     </div>
                 </div>
                 
-                <div class="package package-compact">
+                <div class="package">
                     <div class="package-header">
                         <h3><span class="package-icon">🏢</span>Пакет "Офис"</h3>
-                        <div class="package-price">$200<span class="price-period">/месяц</span></div>
-                    </div>
-                    
-                    <div class="segment">
-                        <strong>Идеально для:</strong> Агентств недвижимости с командой 2-15 человек
                     </div>
                     
                     <div class="free-installation">
-                        ✅ Бесплатная установка Uysot CRM (экономия $500)
+                        ✅ Бесплатная установка Uysot CRM
                     </div>
                     
                     <div class="bonus-credit">
-                        ✅ Стартовый бонус 400 000 сум после релиза (используйте на объявления или лиды)
+                        ✅ Стартовый бонус 400,000 сум после релиза (используйте на объявления или лиды)
                     </div>
                     
                     <div class="features-grid">
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Uysot CRM</div>
-                            <p class="compact-text"><strong>5 пользователей CRM включено</strong><br>
+                            <p><strong>CRM система для управления клиентами</strong><br>
                             - Максимум до 15 пользователей<br>
-                            - Дополнительный пользователь: $25/месяц<br>
                             - Бесплатный перенос из AmoCRM<br>
                             - 3 месяца бесплатно для всей команды</p>
                         </div>
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Маркетплейс</div>
-                            <p class="compact-text">Бесплатное размещение до релиза<br>
-                            + Бонус 400 000 сум после релиза</p>
+                            <p><strong>Бесплатное размещение до релиза</strong><br>
+                            - После релиза: используйте бонус 400,000 сум на листинг объявлений<br>
+                            - Тарифы на объявления после релиза:<br>
+                            <table class="tariff-table">
+                                <tr>
+                                    <th>Тариф</th>
+                                    <th>Кол-во объявлений</th>
+                                    <th>Цена</th>
+                                </tr>
+                                <tr>
+                                    <td>Mini</td>
+                                    <td>5 объявлений</td>
+                                    <td>150,000 сум</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard</td>
+                                    <td>20 объявлений</td>
+                                    <td>400,000 сум</td>
+                                </tr>
+                                <tr>
+                                    <td>Pro</td>
+                                    <td>Безлимит</td>
+                                    <td>1,000,000 сум</td>
+                                </tr>
+                            </table>
+                            - Платная функция "Поднятие в топ" (станет доступной после запуска фичи)</p>
                         </div>
-                        <div class="feature feature-compact">
-                            <div class="feature-title">Lid Bozor + Реферальная программа</div>
-                            <p class="compact-text">Полная интеграция в CRM<br>
-                            + <strong>5-10 бонусных лидов за каждого приглашённого, который оплатил подписку</strong><br>
-                            - Бонусные лиды начисляются только за платящих пользователей<br>
-                            - Максимум 50 бонусных лидов в месяц</p>
+                        <div class="feature">
+                            <div class="feature-title">Lid Bozor</div>
+                            <p><strong>400,000 бонус на покупку лидов</strong><br>
+                            - Используйте бонусные средства для покупки лидов</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: auto; padding-top: 1rem;">
+                        <div class="highlight" style="margin-bottom: 0;">
+                            <strong>Для кого:</strong> Агентства недвижимости с командой 3-15 человек
                         </div>
                     </div>
                 </div>
                 
-                <div class="package package-compact">
+                <div class="package">
                     <div class="package-header">
                         <h3><span class="package-icon">🏛️</span>Пакет "Корпорация"</h3>
-                        <div class="package-price">$500<span class="price-period">/месяц</span></div>
-                    </div>
-                    
-                    <div class="segment">
-                        <strong>Идеально для:</strong> Крупных агентств недвижимости, сетей и девелоперов
                     </div>
                     
                     <div class="free-installation">
-                        ✅ Бесплатная установка Uysot CRM (экономия $500)
+                        ✅ Бесплатная установка Uysot CRM
+                    </div>
+                    
+                    <div class="bonus-credit">
+                        ✅ Стартовый бонус 700,000 сум после релиза (используйте на объявления или лиды)
                     </div>
                     
                     <div class="features-grid">
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Uysot CRM</div>
-                            <p class="compact-text"><strong>10 пользователей CRM включено</strong><br>
-                            - Без ограничений по количеству пользователей<br>
-                            - Дополнительный пользователь: $20/месяц</p>
+                            <p><strong>CRM система для управления клиентами</strong><br>
+                            - Без ограничений по количеству пользователей</p>
                         </div>
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Маркетплейс</div>
-                            <p class="compact-text">- Безлимитное размещение объявлений<br>
-                            - $300 реклама на первой странице маркетплейса<br>
-                            - Приоритет в поисковой выдаче</p>
+                            <p><strong>Бесплатное размещение до релиза</strong><br>
+                            - После релиза: используйте бонус 700,000 сум на листинг объявлений<br>
+                            - Тарифы на объявления после релиза:<br>
+                            <table class="tariff-table">
+                                <tr>
+                                    <th>Тариф</th>
+                                    <th>Кол-во объявлений</th>
+                                    <th>Цена</th>
+                                </tr>
+                                <tr>
+                                    <td>Mini</td>
+                                    <td>5 объявлений</td>
+                                    <td>150,000 сум</td>
+                                </tr>
+                                <tr>
+                                    <td>Standard</td>
+                                    <td>20 объявлений</td>
+                                    <td>400,000 сум</td>
+                                </tr>
+                                <tr>
+                                    <td>Pro</td>
+                                    <td>Безлимит</td>
+                                    <td>1,000,000 сум</td>
+                                </tr>
+                            </table>
+                            - Платная функция "Поднятие в топ" (станет доступной после запуска фичи)</p>
                         </div>
-                        <div class="feature feature-compact">
+                        <div class="feature">
                             <div class="feature-title">Lid Bozor</div>
-                            <p class="compact-text"><strong>30 горячих лидов включено</strong><br>
-                            - Гарантированные лиды по подписке</p>
+                            <p><strong>700,000 бонус на покупку лидов</strong><br>
+                            - Используйте бонусные средства для покупки лидов</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: auto; padding-top: 1rem;">
+                        <div class="highlight" style="margin-bottom: 0;">
+                            <strong>Для кого:</strong> Крупные агентства недвижимости, сети и девелоперы
                         </div>
                     </div>
                 </div>
@@ -710,12 +539,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Цена в месяц</td>
-                        <td>$25 (первый)<br>$15 (второй)</td>
-                        <td>$200</td>
-                        <td>$500</td>
-                    </tr>
-                    <tr>
                         <td>Максимум пользователей</td>
                         <td>2</td>
                         <td>15</td>
@@ -728,34 +551,22 @@
                         <td class="check">✓</td>
                     </tr>
                     <tr>
-                        <td>Стартовый бонус</td>
-                        <td>150 000 сум</td>
-                        <td>400 000 сум</td>
-                        <td class="dash">-</td>
+                        <td>Бонус после релиза</td>
+                        <td>150,000 сум</td>
+                        <td>400,000 сум</td>
+                        <td>700,000 сум</td>
                     </tr>
                     <tr>
                         <td>Тарифы на объявления</td>
                         <td class="check">✓</td>
                         <td class="check">✓</td>
-                        <td class="dash">-</td>
-                    </tr>
-                    <tr>
-                        <td>Безлимитные объявления</td>
-                        <td class="dash">-</td>
-                        <td class="dash">-</td>
                         <td class="check">✓</td>
                     </tr>
                     <tr>
-                        <td>Лиды в месяц</td>
-                        <td>Покупка за бонус</td>
-                        <td>Бонусные (реферальная программа)</td>
-                        <td>30 включено</td>
-                    </tr>
-                    <tr>
-                        <td>Реферальная программа</td>
-                        <td class="check">✓ (объявления)<br>БЕСКОНЕЧНО</td>
-                        <td class="check">✓ (бонусные лиды)</td>
-                        <td class="dash">-</td>
+                        <td>Поднятие в топ</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
                     </tr>
                     <tr>
                         <td>Приоритетная поддержка</td>
@@ -766,79 +577,12 @@
                 </tbody>
             </table>
         </section>
-
-        <section>
-            <h2>Реферальные программы</h2>
-            
-            <div class="features-grid">
-                <div class="feature feature-compact">
-                    <div class="feature-title">Для пакета "Маклер"</div>
-                    <div class="viral-mechanic">
-                        <p class="compact-text"><strong>Приглашай коллег - получай объявления БЕСКОНЕЧНО!</strong><br>
-                        - За каждого приглашенного риэлтора, который зарегистрировался и использовал бонус<br>
-                        - Пригласивший получит: <strong>Mini тариф (5 объявлений)</strong><br>
-                        - <strong>БЕСКОНЕЧНО:</strong> Нет ограничений на количество приглашенных!</p>
-                    </div>
-                </div>
-                
-                <div class="feature feature-compact">
-                    <div class="feature-title">Для пакета "Офис"</div>
-                    <p class="compact-text"><strong>Бонусные лиды за приглашения:</strong><br>
-                    - Получают 5-10 бонусных лидов за каждого приглашённого, который оплатил подписку<br>
-                    - Бонусные лиды начисляются только за платящих пользователей<br>
-                    - Максимум 50 бонусных лидов в месяц</p>
-                </div>
-            </div>
-        </section>
-        
-        <section>
-            <h2>Почему выбирают Uysot?</h2>
-            
-            <div class="highlight">
-                <h3>Ключевые преимущества:</h3>
-                <ul>
-                    <li><strong>Все в одном месте:</strong> CRM, маркетплейс и лиды в единой платформе</li>
-                    <li><strong>Гибкие тарифы:</strong> От индивидуального риэлтора до крупной компании</li>
-                    <li><strong>Бесплатная установка CRM:</strong> В пакетах "Офис" и "Корпорация" (экономия $500)</li>
-                    <li><strong>Привлекательные бонусы:</strong> Стартовые бонусы для новых пользователей</li>
-                    <li><strong>Выгодные реферальные программы:</strong> Привлекайте коллег и получайте дополнительные преимущества</li>
-                    <li><strong>Простота использования:</strong> Интуитивно понятный интерфейс для быстрого старта</li>
-                    <li><strong>Постоянное развитие:</strong> Регулярные обновления и новые функции</li>
-                </ul>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <div class="benefit-title">Быстрый старт</div>
-                    <p class="compact-text">Начните работать с платформой сразу после регистрации без сложных настроек</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">💼</div>
-                    <div class="benefit-title">Профессиональные инструменты</div>
-                    <p class="compact-text">Все необходимые функции для успешной работы риэлтора в одном месте</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <div class="benefit-title">Рост вашего бизнеса</div>
-                    <p class="compact-text">Увеличивайте количество сделок и доход с помощью наших решений</p>
-                </div>
-            </div>
-        </section>
-        
-        <div class="cta-section">
-            <h2 class="cta-title">Готовы увеличить свои продажи?</h2>
-            <p>Присоединяйтесь к платформе Uysot сегодня и получите преимущества для вашего бизнеса</p>
-            <div class="cta-buttons">
-                <a href="https://uysot.uz" class="cta-button" target="_blank">Начните работать с Uysot</a>
-                <a href="tel:+998500706806" class="cta-button secondary">+998 50 070 68 06</a>
-            </div>
-            <div class="contact-info">
-                Маркетплейс: uysot.uz • Телефон: +998 50 070 68 06
-            </div>
-        </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>2025 uysot.uz</p>
+        </div>
+    </footer>
 </body>
 </html>
